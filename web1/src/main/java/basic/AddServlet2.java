@@ -21,6 +21,7 @@ public class AddServlet2 extends HttpServlet {
         // 사칙연산 화면출력
         res.setContentType("text/html;charset=utf-8");
         PrintWriter out = res.getWriter();
+
         int result = 0;
         switch (op) {
             case "+":
