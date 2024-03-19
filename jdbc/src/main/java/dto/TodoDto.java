@@ -1,6 +1,7 @@
 package dto;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +24,7 @@ public class TodoDto {
     // table 구조와 동일하게 작성
     private int no;
     private String title;
-    private LocalDateTime createdAt;
+    private Date createdAt;
     private boolean completed;
     private String description;
 
