@@ -131,13 +131,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link text-white">
+            <a href='<c:url value="/view/search.jsp" />' class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#search" /></svg>
               도서검색
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link text-white">
+            <a href='<c:url value="/view/delete.jsp" />' class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#trash"></use></svg>
               도서삭제
             </a>
