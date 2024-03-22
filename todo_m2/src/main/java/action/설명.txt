@@ -1,0 +1,19 @@
+1. 목록 클릭 : http://localhost:8080/list.do 요청
+2. TodoServlet 으로 요청이 전달
+   1) 요청에 대한 한글처리
+   2) 어디에서 온 요청인지 분리 작업
+   3) 분리된 요청에 따라 Action 생성
+   4) 생성된 action 에게 일 시키기 (action.execute(req);)
+   5) *Action : 사용자가 보낸 정보 가져오기
+                서비스 호출
+                서비스 결과에 따라 이동방식과 이동경로 객체 생성
+                이동방식 - true(session.setAttribute() or 다시 서블릿으로 요청이 가거나 or 가져갈 값이 없거나)
+                           false(req.setAttribute())
+   6) 서블릿으로 돌아와서 아래 구문 실행
+   if (af.isRedirect()) {
+            resp.sendRedirect(af.getPath());
+        } else {
+            RequestDispatcher rd = req.getRequestDispatcher(af.getPath());
+            rd.forward(req, resp);
+        }
+3. 사용자에게는 결과 페이지 전송되게 됨
