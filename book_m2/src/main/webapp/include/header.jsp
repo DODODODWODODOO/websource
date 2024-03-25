@@ -150,24 +150,46 @@
           </li>
         </ul>
         <hr />
+        <%-- 회원 --%>
         <div class="dropdown">
+        <%-- 로그인 안한 경우 --%>
+        <%-- loginDto == null --%>
+           <c:if test="${empty loginDto}">
           <a
             href="#"
             class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2" />
-            <strong>mdo</strong>
+          
+            <strong>회원</strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
+            <li><a class="dropdown-item" href='<c:url value="/view/login.jsp" />'>로그인</a></li>
+            <li><a class="dropdown-item" href='<c:url value="/view/register.jsp" />'>회원가입</a></li>
+           </ul>
+           </c:if>
+           <%-- 로그인 한 경우 --%>
+           <%-- loginDto != null --%>
+            <c:if test="${not empty loginDto}">
+            <a
+            href="#"
+            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2" />
+            <strong>${loginDto.name}</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" href='<c:url value="/logout.do" />'>로그아웃</a></li>
+            <li><a class="dropdown-item" href='<c:url value="/view/pwdChange.jsp" />'>비밀번호 수정</a></li>
+            <li><a class="dropdown-item" href='<c:url value="/view/leave.jsp" />'>회원탈퇴</a></li>
+           </ul>
+            </c:if >
         </div>
+
+        <%-- //회원 종료 --%>
       </div>
 
       <div class="b-example-divider b-example-vr"></div>
