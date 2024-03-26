@@ -7,7 +7,7 @@
     <h1 class="h3 mb-3 fw-normal">회원탈퇴</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid" value="" readonly>
+      <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid" value="${loginDto.userid}" readonly>
       <label for="floatingInput">아이디</label>
     </div>
     <div class="form-floating">

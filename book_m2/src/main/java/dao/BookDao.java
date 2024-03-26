@@ -1,7 +1,7 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
+
 import javax.sql.DataSource;
 
 import dto.BookDto;
@@ -263,6 +263,32 @@ public class BookDao {
             pstmt.setString(1, changeDto.getNewPassword());
 
             pstmt.setString(2, changeDto.getUserid());
+
+            result = pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        } finally {
+            close(con, pstmt);
+        }
+        return result;
+    }
+
+    public int memberDel(MemberDto delDto) {
+        // 회원 탈퇴
+
+        int result = 0;
+        con = getConnection();
+        String sql = "DELETE FROM MEMBERTBL WHERE USERID=? AND PASSWORD=?";
+
+        try {
+            pstmt = con.prepareStatement(sql);
+
+            // ? 해결
+            pstmt.setString(1, delDto.getUserid());
+
+            pstmt.setString(2, delDto.getPassword());
 
             result = pstmt.executeUpdate();
 

@@ -28,4 +28,5 @@ public interface BookService {
 
     boolean register(MemberDto insertDto);
 
+    boolean leave(MemberDto delDto);
 }

@@ -1,7 +1,6 @@
 package action;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import dto.MemberDto;
 import lombok.AllArgsConstructor;
