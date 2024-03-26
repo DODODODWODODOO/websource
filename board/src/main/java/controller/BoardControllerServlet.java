@@ -17,7 +17,7 @@ import action.BoardReadAction;
 import action.BoardWriteAction;
 
 @WebServlet("*.do")
-@MultipartConfig // 파일 업로드 지원
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 50) // 파일 업로드 지원
 public class BoardControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
