@@ -1,6 +1,6 @@
 package action;
 
-public class ActionForword {
+public class ActionForward {
     private String path; // 경로 지정 변수
     private boolean redirect; // sandRedirect 여부(true)
 
@@ -20,10 +20,10 @@ public class ActionForword {
         this.redirect = redirect;
     }
 
-    public ActionForword() {
+    public ActionForward() {
     }
 
-    public ActionForword(String path, boolean redirect) {
+    public ActionForward(String path, boolean redirect) {
         this.path = path;
         this.redirect = redirect;
     }

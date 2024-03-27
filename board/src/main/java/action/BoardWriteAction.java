@@ -17,7 +17,7 @@ public class BoardWriteAction implements Action {
     private String path;
 
     @Override
-    public ActionForword execute(HttpServletRequest req) throws Exception {
+    public ActionForward execute(HttpServletRequest req) throws Exception {
 
         // qna_board_write.jsp 넘긴 값 가져오기
         BoardDto insertDto = new BoardDto();
@@ -55,7 +55,7 @@ public class BoardWriteAction implements Action {
             path = "/view/qna_board_write.jsp";
         }
 
-        return new ActionForword(path, true);
+        return new ActionForward(path, true);
     }
 
     private String getFileName(Part part) {

@@ -1,0 +1,11 @@
+웹 어플리케이션 기본 ==> 익명 계시판
+
+crud + 페이지 나누기 + upload
+
+input/output
+
+1. input
+ 1) 키보드 : system.in
+ 2) 파일
+    텍스트 : Reader(추천), InputStream
+    이미지, 동영상 : FileInputStream

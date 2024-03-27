@@ -13,7 +13,7 @@ public class BoardReadAction implements Action {
     private String path;
 
     @Override
-    public ActionForword execute(HttpServletRequest req) throws Exception {
+    public ActionForward execute(HttpServletRequest req) throws Exception {
 
         int bno = Integer.parseInt(req.getParameter("bno"));
 
@@ -24,7 +24,7 @@ public class BoardReadAction implements Action {
         // req 결과 담기
         req.setAttribute("dto", dto);
 
-        return new ActionForword(path, false);
+        return new ActionForward(path, false);
     }
 
 }

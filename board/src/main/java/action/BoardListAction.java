@@ -15,7 +15,7 @@ public class BoardListAction implements Action {
     private String path;
 
     @Override
-    public ActionForword execute(HttpServletRequest req) throws Exception {
+    public ActionForward execute(HttpServletRequest req) throws Exception {
 
         // BoardService list 호출
         BoardService service = new BoardServiceImpl();
@@ -24,7 +24,7 @@ public class BoardListAction implements Action {
         // req 결과 담기
         req.setAttribute("list", list);
 
-        return new ActionForword(path, false);
+        return new ActionForward(path, false);
     }
 
 }
