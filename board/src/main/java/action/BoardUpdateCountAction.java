@@ -2,13 +2,12 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 
-import dto.BoardDto;
 import lombok.AllArgsConstructor;
 import service.BoardService;
 import service.BoardServiceImpl;
 
 @AllArgsConstructor
-public class BoardReadAction implements Action {
+public class BoardUpdateCountAction implements Action {
 
     private String path;
 
@@ -20,12 +19,11 @@ public class BoardReadAction implements Action {
         // BoardService호출
         BoardService service = new BoardServiceImpl();
 
-        BoardDto dto = service.read(bno);
+        // 조회수 업데이트
+        service.updateCount(bno);
 
-        // req 결과 담기
-        req.setAttribute("dto", dto);
-
-        return new ActionForward(path, false);
+        path += "?bno=" + bno;
+        return new ActionForward(path, true);
     }
 
 }
