@@ -14,7 +14,7 @@
 	  <h1 class="display-4">Anonymous Bulletin Board</h1>
 	  <p class="lead" style="font-family: 'Nanum Pen Script', cursive;font-size: 40px">계층형 게시판</p>
 	  <hr class="my-4">  
-	  <a class="btn btn-primary btn-lg" href='<c:url value="/qList.do" />' role="button">Start Board</a>
+	  <a class="btn btn-primary btn-lg" href='<c:url value="/qList.do?page=1&amount=30&criteria=&keyword=" />' role="button">Start Board</a>
 	</div>
 </div>
 </body>

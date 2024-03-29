@@ -240,6 +240,51 @@ public class BoardDao {
         return result;
     }
 
+    // bno 와 password 받아서 비밀번호 확인
+    public int pwdCheck(BoardDto passDto) {
+        int result = 0;
+
+        try {
+            con = getConnection();
+            String sql = "SELECT count(*) FROM BOARD WHERE BNO=? AND PASSWORD=?";
+            pstmt = con.prepareStatement(sql);
+
+            pstmt.setInt(1, passDto.getBno());
+            pstmt.setString(2, passDto.getPassword());
+
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                result = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(con, pstmt);
+        }
+        return result;
+    }
+
+    public int deleteAll(int reRef) {
+        // 부모+자식 제거
+        int result = 0;
+
+        try {
+            con = getConnection();
+            String sql = "DELETE FROM BOARD WHERE re_ref=?";
+            pstmt = con.prepareStatement(sql);
+
+            pstmt.setInt(1, reRef);
+
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(con, pstmt);
+        }
+        return result;
+    }
+
     // 댓글 작성
     public int reply(BoardDto replyDto) {
         int result = 0;

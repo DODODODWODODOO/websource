@@ -89,9 +89,19 @@
         </div>
         <div style="height:20px"></div>
       </div>
+      	<input type="hidden" name="page" value='<%=request.getParameter("page") %>'>
+        <input type="hidden" name="amount" value='<%=request.getParameter("amount") %>'>
+        <input type="hidden" name="criteria" value='<%=request.getParameter("criteria") %>'>
+        <input type="hidden" name="keyword" value='<%=request.getParameter("keyword") %>'>
     </form>
   </div>
   <!-- /.box -->
 </section>
+<form action='<c:url value="/qList.do" />' method="get" id="actionForm">
+        <input type="hidden" name="page" value='<%=request.getParameter("page") %>'>
+        <input type="hidden" name="amount" value='<%=request.getParameter("amount") %>'>
+        <input type="hidden" name="criteria" value='<%=request.getParameter("criteria") %>'>
+        <input type="hidden" name="keyword" value='<%=request.getParameter("keyword") %>'>
+</form>
 <script src='<c:url value="/js/write.js" />'></script>
 <%@include file="/include/footer.jsp"%>
